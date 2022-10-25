@@ -1,5 +1,5 @@
 USE codeup_test_db;
-INSERT INTO albums(artist, name, relase_date, sales, genre)
+INSERT INTO albums(artist, name, release_date, sales, genre)
 VALUES ('Michael Jackson','Thriller',1982,70,'Pop, post-disco, funk, rock'),
        ('AC/DC','Back in Black',1980,50,'Hard rock'),
        ('Whitney Houston / various artists','The Bodyguard',1992,45,'R&B, soul, pop, soundtrack'),
