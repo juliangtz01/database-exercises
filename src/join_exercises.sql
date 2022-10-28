@@ -35,15 +35,18 @@ departments.dept_name AS Department,
 CONCAT(manager.first_name,' ',manager.last_name) AS Manager
 FROM employees AS employee
 JOIN dept_emp
-ON dept_emp.emp_no = employee.emp_no
+ON employee.emp_no = dept_emp.emp_no
 JOIN departments
 ON dept_emp.dept_no = departments.dept_no
-JOIN dept_manager
-ON dept_manager.emp_no = dept_manager.emp_no
 JOIN employees AS manager
+JOIN dept_manager
 ON dept_manager.emp_no = manager.emp_no
 WHERE dept_emp.to_date = '9999-01-01'
+AND dept_manager.to_date = '9999-01-01'
+AND dept_manager.dept_no = dept_emp.dept_no
 ORDER BY departments.dept_name;
+
+
 
 
 
