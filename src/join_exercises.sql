@@ -4,14 +4,14 @@ SELECT departments.dept_name AS 'Department Name', CONCAT(employees.first_name, 
 -- Find the name of all departments currently managed by women
 SELECT departments.dept_name AS 'Department Name', CONCAT(employees.first_name, ' ', employees.last_name) AS 'Department Manger' FROM departments JOIN  dept_manager AS manager ON manager.dept_no = departments.dept_no JOIN employees ON manager.emp_no = employees.emp_no WHERE manager.to_date = '9999-01-01' AND employees.gender = 'F' ORDER BY departments.dept_name;
 -- Find the current titles of employees currently working in the Customer Service department.
-SELECT titles.title AS 'title', count(*) AS Total
+SELECT titles.title AS 'title', count(titles.title) AS Total
 FROM titles
 JOIN dept_emp AS department
 ON department.emp_no = titles.emp_no
-AND titles.to_date = '9999-01-01'
 JOIN departments
 ON departments.dept_no = department.dept_no
 AND departments.dept_name = 'Customer Service'
+AND titles.to_date = '9999-01-01'
 GROUP BY titles.title;
 
 -- Find the current salary of all current managers
